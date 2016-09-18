@@ -71,10 +71,10 @@ $l10n->begin_html_translation();
 
         <?php if ($page['lang']) { ?>
         <link rel="alternate" type="text/html" hreflang="en" href="<?php echo $sitewide['root'].(($page['name'] == 'index') ? '' : $page['name']); ?>">
-        <link rel="stylesheet" type="text/css" media="all" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,300italic,400italic|Droid+Sans|Roboto+Mono&subset=latin,greek,vietnamese,greek-ext,latin-ext,cyrillic,cyrillic-ext">
+        <link rel="stylesheet" type="text/css" media="all" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic|Droid+Sans|Roboto+Mono&subset=latin,greek,vietnamese,greek-ext,latin-ext,cyrillic,cyrillic-ext">
         <?php } else { ?>
         <link rel="alternate" type="text/html" hreflang="en" href="<?php echo $sitewide['root'].(($page['name'] == 'index') ? '' : $page['name']); ?>">
-        <link rel="stylesheet" type="text/css" media="all" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,300italic,400italic|Droid+Sans|Roboto+Mono">
+        <link rel="stylesheet" type="text/css" media="all" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic|Droid+Sans|Roboto+Mono">
         <?php } ?>
 
         <link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/fontawesome/4.6.3/css/font-awesome.min.css">
@@ -85,32 +85,10 @@ $l10n->begin_html_translation();
         <?php } ?>
 
         <script async src="https:<?php echo $sitewide['branch_root'] ?>backend/hsts.php"></script>
-        <?php if ( $trackme ) { ?>
-        <script async src="https://www.google-analytics.com/analytics.js"></script>
-        <script>
-            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-            ga('create', 'UA-19280770-1', 'auto')
-            ga('set', 'forceSSL', true)
-            ga('set', 'anonymizeIp', true)
-            ga('require', 'displayfeatures')
-            ga('send', 'pageview')
-            ga('send', 'event', 'Language', 'Pageload', document.documentElement.lang)
-        </script>
-        <?php } ?>
 
-        <script>
-            <?php include __DIR__.'/../scripts/jql.min.js'; ?>
-            jQl.loadjQ('https://cdn.jsdelivr.net/g/jquery@3,flipclock@0.7.7(flipclock.min.js)')
-            <?php foreach ($page['script-plugins'] as $script) { ?>
-            jQl.loadjQdep("<?php echo $script ?>")
-            <?php } ?>
-            jQl.boot()
-        </script>
+        <script src="scripts/common.js"></script>
+        <script src="scripts/main.js" async></script>
 
-        <script src="scripts/popover.js" async></script>
-        <script src="scripts/smooth-scrolling.js" async></script>
-        <script src="scripts/twitter-links.js" async></script>
-        <script src="scripts/external-links.js" async></script>
         <?php
             // loads all async javascript tags here
             foreach ($page['scripts'] as $one => $two) {
@@ -118,7 +96,6 @@ $l10n->begin_html_translation();
                 $atr = (is_array($two)) ? $two : array();
 
                 if (!isset($atr['async'])) $atr['async'] = true;
-                if (!$atr['async']) continue;
 
                 $atr_string = "";
                 foreach ($atr as $name => $setting) {
@@ -131,7 +108,6 @@ $l10n->begin_html_translation();
         ?>
         <script src="<?php echo $src ?>"<?php echo $atr_string ?>></script>
         <?php } ?>
-
     </head>
     <body class="page-<?php echo $page['name']; ?>">
         <nav>
@@ -146,12 +122,6 @@ $l10n->begin_html_translation();
                     <?php } ?>
                 </ul>
                 <ul class="right">
-                    <?php
-                        $releaseDate = new DateTime('2016-09-09 17:00:00');
-                        if (new DateTime() < $releaseDate) {
-                    ?>
-                    <li><a href="<?php echo $page['lang-root'].'countdown'; ?>"><i class="fa fa-clock-o"></i></a></li>
-                    <?php } ?>
                     <li><a href="<?php echo $page['lang-root'].'developer'; ?>">Developer</a></li>
                     <li><a href="<?php echo $page['lang-root'].'get-involved'; ?>">Get Involved</a></li>
                 </ul>

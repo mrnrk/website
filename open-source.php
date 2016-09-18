@@ -1,9 +1,12 @@
 <?php
-    include '_templates/sitewide.php';
+    include __DIR__.'/_templates/sitewide.php';
+
     $page['title'] = 'Open Source &sdot; elementary';
+
     $page['styles'] = array(
         'styles/open-source.css'
     );
+
     include $template['header'];
     include $template['alert'];
 ?>
@@ -18,7 +21,7 @@
 <div class="grid">
     <div class="platform-item full">
         <a href="get-involved#desktop-development">
-            <img class="oss-logo" src="images/icons/distributor-logo.svg" alt="Applications">
+            <img class="oss-logo" src="images/icons/places/64/distributor-logo.svg" alt="Applications">
             <p class="oss-title">elementary OS Applications</p>
         </a>
         <div>
@@ -35,11 +38,11 @@
     </div>
     <div class="platform-item half">
         <a href="get-involved#desktop-development">
-            <img class="oss-logo" src="images/icons/preferences-desktop-wallpaper.svg" alt="Desktop Shell">
+            <img class="oss-logo" src="images/icons/categories/64/preferences-desktop-wallpaper.svg" alt="Desktop Shell">
             <p class="oss-title">Pantheon Desktop Shell</p>
         </a>
         <div>
-            <a class="button sub-item" href="https://launchpad.net/egtk" target="_blank"><span>GTK+ Stylesheet</span></a>
+            <a class="button sub-item" href="https://github.com/elementary/stylesheet" target="_blank"><span>GTK+ Stylesheet</span></a>
             <a class="button sub-item" href="https://github.com/elementary/icons" target="_blank"><span>Icon Theme</span></a>
             <a class="button sub-item" href="https://launchpad.net/gala" target="_blank"><span>Gala</span></a>
             <a class="button sub-item" href="https://launchpad.net/plank" target="_blank"><span>Plank</span></a>

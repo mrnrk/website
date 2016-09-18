@@ -1,6 +1,8 @@
 <?php
-    include '_templates/sitewide.php';
+    include __DIR__.'/_templates/sitewide.php';
+
     $page['title'] = 'Privacy Policy &sdot; elementary';
+
     include $template['header'];
     include $template['alert'];
 ?>
@@ -40,11 +42,11 @@
                     <h4 data-l10n-off>Safari</h4>
                 </a>
                 <a target="_blank" href="http://midori-browser.org/faqs/#blacklist_cookies" class="column">
-                    <img src="images/privacy-policy/midori_128x128.png" data-l10n-off alt="Midori" class="browsers-list" />
+                    <img src="images/privacy-policy/midori_256x256.png" data-l10n-off alt="Midori" class="browsers-list" />
                     <h4 data-l10n-off>Midori</h4>
                 </a>
                 <a target="_blank" href="https://help.gnome.org/users/epiphany/stable/data-cookies.html" class="column">
-                    <img src="images/privacy-policy/epiphany_128x128.png" data-l10n-off alt="Epiphany" class="browsers-list" />
+                    <img src="images/icons/apps/48/internet-web-browser.svg" data-l10n-off alt="Epiphany" class="browsers-list" />
                     <h4 data-l10n-off>Epiphany</h4>
                 </a>
                 <h3>Transparency</h3>
