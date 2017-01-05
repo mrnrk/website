@@ -52,7 +52,8 @@ export function branch () {
 export function url () {
     if (window.location.host === 'beta.elementary.io') {
         const branch = branch()
-        return `${window.location.origin}/${branch}`
+
+        if (branch != null) return `${window.location.origin}/${branch}`
     }
 
     return window.location.origin
